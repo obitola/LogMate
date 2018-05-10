@@ -3,8 +3,8 @@ var express = require('express');
 var path = require('path');
 var router = express.Router();
 
-//var indexRouter = require('./public/routes/index');
-//var usersRouter = require('./public/routes/users');
+var indexRouter = require('./public/routes/index');
+var usersRouter = require('./public/routes/users');
 
 var app = express();
 
