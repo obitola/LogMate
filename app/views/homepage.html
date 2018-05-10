@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Grocery List</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sjcl/1.0.0/sjcl.min.js"></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous" />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="http://getbootstrap.com.vn/examples/equal-height-columns/equal-height-columns.css" />
+    <link href="static/index.css" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="static/index.min.js"></script>
+</head>
+
+<body id="override-bootstrap">
+    <!-- div class="top centered" -->
+    <!-- plan -->
+    <div class="container-fluid" id="grocery-scheduler">
+
+        <!-- plan-wksl, plan-tlbr -->
+        <div class="row row-eq-height" id="body">
+            <!-- plan-tlbr -->
+            <div class="col-md-3 col-md-offset-1" id="tool-bar">
+                <div id="tools">
+                    <div>
+                        <!-- plan-tlbr-01 -->
+                        <h4>Name:</h4>
+                        <input type="text" size=25 placeholder="Bread, soup, etc..." id="name">
+
+                        <h4>Price:</h4>
+                        <input type="text" size=15 placeholder="$XXX.XX" id="price"></input>
+                    </div>
+
+                    <!-- plan-tlbr-02 -->
+                    <div id="weeklist">
+                        <button class="btn btn-primary dropdown-toggle div-caret" type="button" data-toggle="dropdown"><h5 id="grocery-type">Choose a type: <span class="caret"></span></h5></button>
+                        <ul class="dropdown-menu gitem-menu">
+                            <li class="gtype">Fruit</li>
+                            <li class="gtype">Vegetable</li>
+                            <li class="gtype">Nut</li>
+                            <li class="gtype">Bean</li>
+                            <li class="gtype">Meat</li>
+                            <li class="gtype">Bread</li>
+                            <li class="gtype">Dessert</li>
+                            <li class="gtype">Other</li>
+                            <li class="gtype">Choose a type:</li>
+                        </ul>
+                    </div>
+
+                    <!-- plan-tlbr-03 -->
+                    <div id="tool-buttons">
+                        <button id="g-add">Add</button>
+                        <button id="g-update">Update</button>
+                        <button id="g-delete">Delete</button>
+                        <button id="g-type">Get Type</button>
+                    </div>
+                </div>
+
+                <div>
+                    <p id="err-msg-bar"></p>
+                </div>
+            </div>
+
+            <!-- plan-wksl -->
+            <div class="col-md-3" id="wrapper">
+                <div class="shopping" id="groceries">
+                    <div class="shop-in"> Groceries </div>
+                    <div id="list"></div>
+                </div>
+            </div>
+
+            <pre class="col-md-4" id="type-list">
+            </pre>
+        </div>
+</body>
+
+</html>
