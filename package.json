@@ -1,0 +1,19 @@
+{
+  "name": "logmate",
+  "version": "1.0.0",
+  "description": "You can use the [editor on GitHub](https://github.com/obitola/LogMate/edit/master/README.md) to maintain and preview the content for your website in Markdown files.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/obitola/LogMate.git"
+  },
+  "author": "Tobi Ola",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/obitola/LogMate/issues"
+  },
+  "homepage": "https://github.com/obitola/LogMate#readme"
+}
