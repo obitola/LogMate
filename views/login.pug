@@ -1,0 +1,42 @@
+doctype html
+html(lang='en')
+  head
+  base(href="/../")
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title SB Admin - Start Bootstrap Template
+    // Bootstrap core CSS
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // Custom fonts for this template
+    link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    // Custom styles for this template
+    link(href='css/sb-admin.css', rel='stylesheet')
+  body.bg-dark
+    .container
+      .card.card-login.mx-auto.mt-5
+        .card-header Login
+        .card-body
+          form
+            .form-group
+              label(for='exampleInputEmail1') Email address
+              input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email')
+            .form-group
+              label(for='exampleInputPassword1') Password
+              input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+            .form-group
+              .form-check
+                label.form-check-label
+                  input.form-check-input(type='checkbox')
+                  |  Remember Password
+            a.btn.btn-primary.btn-block(href='index.html') Login
+          .text-center
+            a.d-block.small.mt-3(href='register.html') Register an Account
+            a.d-block.small(href='forgot-password.html') Forgot Password?
+    // Bootstrap core JavaScript
+    script(src='vendor/jquery/jquery.min.js')
+    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+    // Core plugin JavaScript
+    script(src='vendor/jquery-easing/jquery.easing.min.js')
