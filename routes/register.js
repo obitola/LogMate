@@ -54,7 +54,7 @@ router.post('/', function(req, res) {
                 });
             } else {
                 console.log(result);
-                res.render('dashboard');
+                res.redirect('/');
             }
         });
     }    
