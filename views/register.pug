@@ -24,25 +24,29 @@ html(lang='en')
               .form-row
                 .col-md-6
                   label(for='exampleInputName') First name
-                  input#exampleInputName.form-control(type='text', aria-describedby='nameHelp', placeholder='Enter first name')
+                  input#exampleInputName.form-control(name='first_name', type='text', aria-describedby='nameHelp', placeholder='Enter first name')
                 .col-md-6
                   label(for='exampleInputLastName') Last name
-                  input#exampleInputLastName.form-control(type='text', aria-describedby='nameHelp', placeholder='Enter last name')
+                  input#exampleInputLastName.form-control(name='last_name', type='text', aria-describedby='nameHelp', placeholder='Enter last name')
             .form-group
               label(for='exampleInputEmail1') Email address
-              input#exampleInputEmail1.form-control(type='email', aria-describedby='emailHelp', placeholder='Enter email')
+              input#exampleInputEmail1.form-control(name='email', type='email', aria-describedby='emailHelp', placeholder='Enter email')
             .form-group
               .form-row
                 .col-md-6
                   label(for='exampleInputPassword1') Password
-                  input#exampleInputPassword1.form-control(type='password', placeholder='Password')
+                  input#exampleInputPassword1.form-control(name='password', type='password', placeholder='Password')
                 .col-md-6
                   label(for='exampleConfirmPassword') Confirm password
-                  input#exampleConfirmPassword.form-control(type='password', placeholder='Confirm password')
-            a.btn.btn-primary.btn-block(href='login.html') Register
+                  input#exampleConfirmPassword.form-control(name='password2', type='password', placeholder='Confirm password')
+            a.btn.btn-primary.btn-block(method='post', action='/register/newuser') Register
           .text-center
             a.d-block.small.mt-3(href='login.html') Login Page
             a.d-block.small(href='forgot-password.html') Forgot Password?
+        ul.errors
+          if errors
+            each error, i in errors
+              li.alert.alert-danger #{error.msg}
     // Bootstrap core JavaScript
     script(src='vendor/jquery/jquery.min.js')
     script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
