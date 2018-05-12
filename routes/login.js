@@ -15,34 +15,43 @@ router.post('/', function(req, res) {
 
     req.assert('email', 'Email Field is Required!').notEmpty();
     req.assert('email', 'Email is Not Valid!').isEmail();
-    req.assert('first_name', 'First Name Field is Required').notEmpty();
-    req.assert('last_name', 'Last Name Field is Required').notEmpty();
-    req.assert('password', 'First Name Field is Required').notEmpty();
-    req.assert('password2', 'Passwords Do Not Match!').equals(req.body.password);
+    req.assert('password', 'Password Field is Required').notEmpty();
 
     let errors = req.validationErrors();
 
     if (errors) {
-        res.render('register', {
+        res.render('login', {
             errors: errors
         });
     } else {
-
-        let info = {email: req.body.email, first_name: req.body.first_name, last_name: req.body.last_name, password: req.body.password};
-        let sql = 'INSERT INTO users SET ?';
-        let query = db.query(sql, info, function(err, result) {
+        let info = {email: req.body.email, password: req.body.password};
+        let sql = 'SELECT 1 FROM users WHERE email = \'' + req.body.email + '\' AND password = \'' + req.body.password + '\';';
+        console.log(sql);
+        let query = db.query(sql, function(err, result) {
             if (err) {
-                res.render('register', {
+                console.log(err);
+                res.render('login', {
                     errors: [{
                         location: 'body',
                         param: 'email',
-                        msg: 'This Email Has Already Been Used!',
+                        msg: 'Invalid Email Password Combination!',
                         value: ''
                     }]
                 });
             } else {
-                console.log(result);
-                res.redirect('/');
+                if (result.length === 0) {
+                    res.render('login', {
+                        errors: [{
+                            location: 'body',
+                            param: 'email',
+                            msg: 'Invalid Email Password Combination!',
+                            value: ''
+                        }]
+                    });
+                } else {
+                    console.log(result);
+                    res.redirect('/');
+                }
             }
         });
     }    

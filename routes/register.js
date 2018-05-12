@@ -8,7 +8,6 @@ let expressValidator = require('express-validator');
 router.use(expressValidator());
 
 router.post('/', function(req, res) {
-    console.log('worked');
     let email = req.body.email;
     let first_name = req.body.first_name;
     let last_name = req.body.last_name;
@@ -18,7 +17,7 @@ router.post('/', function(req, res) {
     req.assert('email', 'Email is Not Valid!').isEmail();
     req.assert('first_name', 'First Name Field is Required').notEmpty();
     req.assert('last_name', 'Last Name Field is Required').notEmpty();
-    req.assert('password', 'First Name Field is Required').notEmpty();
+    req.assert('password', 'Password Field is Required').notEmpty();
     req.assert('password2', 'Passwords Do Not Match!').equals(req.body.password);
 
     let errors = req.validationErrors();
