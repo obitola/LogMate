@@ -1,25 +1,12 @@
-doctype html
-html(lang='en')
-  head
-    base(href="/../")
-    meta(charset='utf-8')
-    meta(http-equiv='X-UA-Compatible', content='IE=edge')
-    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
-    meta(name='description', content='')
-    meta(name='author', content='')
-    title SB Admin - Start Bootstrap Template
-    // Bootstrap core CSS
-    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
-    // Custom fonts for this template
-    link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
-    // Custom styles for this template
-    link(href='css/sb-admin.css', rel='stylesheet')
+extends layout
+
+block content
   body.bg-dark
     .container
       .card.card-register.mx-auto.mt-5
         .card-header Register an Account
         .card-body
-          form
+          form(action='/' method='POhgklkST')
             .form-group
               .form-row
                 .col-md-6
@@ -39,16 +26,17 @@ html(lang='en')
                 .col-md-6
                   label(for='exampleConfirmPassword') Confirm password
                   input#exampleConfirmPassword.form-control(name='password2', type='password', placeholder='Confirm password')
-            a.btn.btn-primary.btn-block(method='post', action='/register/newuser') Register
+            .form-group
+              a.btn.btn-primary.btn-block(type='submit' value='Submit') Register
           .text-center
-            a.d-block.small.mt-3(href='login.html') Login Page
-            a.d-block.small(href='forgot-password.html') Forgot Password?
+            a.d-block.small.mt-3(href='../login.html') Login Page
+            a.d-block.small(href='../forgot-password.html') Forgot Password?
         ul.errors
           if errors
             each error, i in errors
               li.alert.alert-danger #{error.msg}
     // Bootstrap core JavaScript
-    script(src='vendor/jquery/jquery.min.js')
-    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
+    script(src='../vendor/jquery/jquery.min.js')
+    script(src='../vendor/bootstrap/js/bootstrap.bundle.min.js')
     // Core plugin JavaScript
-    script(src='vendor/jquery-easing/jquery.easing.min.js')
+    script(src='../vendor/jquery-easing/jquery.easing.min.js')

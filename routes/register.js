@@ -1,8 +1,9 @@
-var express = require('express');
-var router = express.Router();
-var mysql = require('mysql');
+const express = require('express');
+const router = express.Router();
+const mysql = require('mysql');
+const bodyParser = require('body-parser');
 
-var db = mysql.createConnection({
+const db = mysql.createConnection({
     host: "localhost",
     user: "root",
     password: "",
@@ -14,7 +15,7 @@ db.connect(function(err) {
    console.log('MySql Connected...');
 });
 
-router.post('/newuser', function(req, res) {
+router.post('/register', function(req, res) {
     console.log('worked');
     let email = req.body.email;
     let first_name = req.body.first_name;
@@ -55,7 +56,7 @@ router.get('/createuserstable', function(req, res) {
 });
 
 /* GET home page. */
-router.get('/', function(req, res, next) {
+router.get('/register', function(req, res, next) {
     res.render('register', { title: 'Express' });
 });
 
