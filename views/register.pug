@@ -6,7 +6,7 @@ block content
       .card.card-register.mx-auto.mt-5
         .card-header Register an Account
         .card-body
-          form(action='/' method='POhgklkST')
+          form(action='/register' method='POST')
             .form-group
               .form-row
                 .col-md-6
@@ -27,7 +27,7 @@ block content
                   label(for='exampleConfirmPassword') Confirm password
                   input#exampleConfirmPassword.form-control(name='password2', type='password', placeholder='Confirm password')
             .form-group
-              a.btn.btn-primary.btn-block(type='submit' value='Submit') Register
+              button.btn.btn-primary.btn-block(type='submit' value='Submit') Register
           .text-center
             a.d-block.small.mt-3(href='../login.html') Login Page
             a.d-block.small(href='../forgot-password.html') Forgot Password?
