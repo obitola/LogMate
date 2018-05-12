@@ -39,17 +39,31 @@ router.post('/', function(req, res) {
             errors: errors
         });
     } else {
+
         let info = {email: req.body.email, first_name: req.body.first_name, last_name: req.body.last_name, password: req.body.password};
         let sql = 'INSERT INTO users SET ?';
         let query = db.query(sql, info, function(err, result) {
-            if (err) throw err;
-            res.render('dashboard');
+            if (err) {
+                res.render('register', {
+                    errors: [{
+                        location: 'body',
+                        param: 'email',
+                        msg: 'This Email Has Already Been Used!',
+                        value: ''
+                    }]
+                });
+            } else {
+                console.log(result);
+                res.render('dashboard');
+            }
         });
     }    
 });
 
-router.get('/createuserstable', function(req, res) {
-    let sql = 'CREATE TABLE users(user_id int AUTO_INCREMENT, email VARCHAR(255), first_name VARCHAR(255), last_name VARCHAR(255), password VARCHAR(255), PRIMARY KEY user_id)';
+router.get('/restarttable', function(req, res) {
+    
+    let sql = 'DROP TABLE users; CREATE TABLE users(user_id int AUTO_INCREMENT, email VARCHAR(255), first_name VARCHAR(255), last_name VARCHAR(255), password VARCHAR(255), PRIMARY KEY user_id, UNIQUE(email));';
+
     db.query(sql, function(err, result) {
         if (err) throw err;
         console.log(result);
