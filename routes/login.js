@@ -2,7 +2,13 @@ const express = require('express');
 const router = express.Router();
 const bodyParser = require('body-parser');
 const db = require('./database');
-let expressValidator = require('express-validator');
+const expressValidator = require('express-validator');
+const crypto = require('crypto');
+const secret = 'qwerty';
+
+const hash = (input) => {
+    return crypto.createHmac('sha256', secret).update(input).digest('hex');
+};
 
 router.use(expressValidator());
 
@@ -11,7 +17,7 @@ router.post('/', function(req, res) {
     let email = req.body.email;
     let first_name = req.body.first_name;
     let last_name = req.body.last_name;
-    let password = req.body.password;
+    let password = hash(req.body.password);
 
     req.assert('email', 'Email Field is Required!').notEmpty();
     req.assert('email', 'Email is Not Valid!').isEmail();
@@ -24,8 +30,7 @@ router.post('/', function(req, res) {
             errors: errors
         });
     } else {
-        let info = {email: req.body.email, password: req.body.password};
-        let sql = 'SELECT 1 FROM users WHERE email = \'' + req.body.email + '\' AND password = \'' + req.body.password + '\';';
+        let sql = 'SELECT 1 FROM users WHERE email = \'' + email + '\' AND password = \'' + password + '\';';
         console.log(sql);
         let query = db.query(sql, function(err, result) {
             if (err) {
