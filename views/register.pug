@@ -29,14 +29,14 @@ block content
             .form-group
               button.btn.btn-primary.btn-block(type='submit' value='Submit') Register
           .text-center
-            a.d-block.small.mt-3(href='../login.html') Login Page
-            a.d-block.small(href='../forgot-password.html') Forgot Password?
+            a.d-block.small.mt-3(href='login.html') Login Page
+            a.d-block.small(href='forgot-password.html') Forgot Password?
         ul.errors.col-md-12
           if errors
             each error, i in errors
               li.alert.alert-danger #{error.msg}
     // Bootstrap core JavaScript
-    script(src='../vendor/jquery/jquery.min.js')
-    script(src='../vendor/bootstrap/js/bootstrap.bundle.min.js')
+    script(src='vendor/jquery/jquery.min.js')
+    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
     // Core plugin JavaScript
-    script(src='../vendor/jquery-easing/jquery.easing.min.js')
+    script(src='vendor/jquery-easing/jquery.easing.min.js')

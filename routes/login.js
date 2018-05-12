@@ -1,6 +1,5 @@
 const express = require('express');
 const router = express.Router();
-
 const bodyParser = require('body-parser');
 const db = require('./database');
 let expressValidator = require('express-validator');
@@ -49,20 +48,9 @@ router.post('/', function(req, res) {
     }    
 });
 
-router.get('/restarttable', function(req, res) {
-    
-    let sql = 'DROP TABLE users; CREATE TABLE users(user_id int AUTO_INCREMENT, email VARCHAR(255), first_name VARCHAR(255), last_name VARCHAR(255), password VARCHAR(255), PRIMARY KEY user_id, UNIQUE(email));';
-
-    db.query(sql, function(err, result) {
-        if (err) throw err;
-        console.log(result);
-        res.send('Table created...');
-    });
-});
-
 /* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('register', { title: 'Express' });
+    res.render('login', { title: 'Express' });
 });
 
 module.exports = router;
