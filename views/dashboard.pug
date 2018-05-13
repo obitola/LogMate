@@ -1,544 +1,714 @@
 doctype html
-html(lang="en")
+html(lang='en')
   head
-    base(href="/../")
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    meta(name="description" content="")
-    meta(name="author" content="")
-    title SB Admin - Start Bootstrap Template
-    // Bootstrap core CSS
-    link(href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet")
-    // Custom fonts for this template
-    link(href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css")
-    // Page level plugin CSS
-    link(href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet")
-    // Custom styles for this template
-    link(href="css/sb-admin.css" rel="stylesheet")
-  body#page-top.fixed-nav.sticky-footer.bg-dark
-    // Navigation
-    nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
-      a.navbar-brand(href="index.html") Start Bootstrap
-      button.navbar-toggler.navbar-toggler-right(type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
-        span.navbar-toggler-icon
-      #navbarResponsive.collapse.navbar-collapse
-        ul#exampleAccordion.navbar-nav.navbar-sidenav
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Dashboard")
-            a.nav-link(href="index.html")
-              i.fa.fa-fw.fa-dashboard
-              span.nav-link-text Dashboard
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Charts")
-            a.nav-link(href="charts.html")
-              i.fa.fa-fw.fa-area-chart
-              span.nav-link-text Charts
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Tables")
-            a.nav-link(href="tables.html")
-              i.fa.fa-fw.fa-table
-              span.nav-link-text Tables
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Components")
-            a.nav-link.nav-link-collapse.collapsed(data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion")
-              i.fa.fa-fw.fa-wrench
-              span.nav-link-text Components
-            ul#collapseComponents.sidenav-second-level.collapse
+    meta(charset='utf-8')
+    meta(http-equiv='X-UA-Compatible', content='IE=edge')
+    meta(name='viewport', content='width=device-width, initial-scale=1')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title SB Admin 2 - Bootstrap Admin Theme
+    // Bootstrap Core CSS
+    link(href='../vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    // MetisMenu CSS
+    link(href='../vendor/metisMenu/metisMenu.min.css', rel='stylesheet')
+    // Custom CSS
+    link(href='../dist/css/sb-admin-2.css', rel='stylesheet')
+    // Morris Charts CSS
+    link(href='../vendor/morrisjs/morris.css', rel='stylesheet')
+    // Custom Fonts
+    link(href='../vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
+    // WARNING: Respond.js doesn't work if you view the page via file://
+    //if lt IE 9
+      script(src='https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js')
+      script(src='https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js')
+  body
+    #wrapper
+      // Navigation
+      nav.navbar.navbar-default.navbar-static-top(role='navigation', style='margin-bottom: 0')
+        .navbar-header
+          button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+            span.sr-only Toggle navigation
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          a.navbar-brand(href='index.html') SB Admin v2.0
+        // /.navbar-header
+        ul.nav.navbar-top-links.navbar-right
+          li.dropdown
+            a.dropdown-toggle(data-toggle='dropdown', href='#')
+              i.fa.fa-envelope.fa-fw
+              i.fa.fa-caret-down
+            ul.dropdown-menu.dropdown-messages
               li
-                a(href="navbar.html") Navbar
+                a(href='#')
+                  div
+                    strong John Smith
+                    span.pull-right.text-muted
+                      em Yesterday
+                  div
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+              li.divider
               li
-                a(href="cards.html") Cards
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Example Pages")
-            a.nav-link.nav-link-collapse.collapsed(data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion")
-              i.fa.fa-fw.fa-file
-              span.nav-link-text Example Pages
-            ul#collapseExamplePages.sidenav-second-level.collapse
+                a(href='#')
+                  div
+                    strong John Smith
+                    span.pull-right.text-muted
+                      em Yesterday
+                  div
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+              li.divider
               li
-                a(href="login.html") Login Page
+                a(href='#')
+                  div
+                    strong John Smith
+                    span.pull-right.text-muted
+                      em Yesterday
+                  div
+                    | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque eleifend...
+              li.divider
               li
-                a(href="register.html") Registration Page
+                a.text-center(href='#')
+                  strong Read All Messages
+                  i.fa.fa-angle-right
+            // /.dropdown-messages
+          // /.dropdown
+          li.dropdown
+            a.dropdown-toggle(data-toggle='dropdown', href='#')
+              i.fa.fa-tasks.fa-fw
+              i.fa.fa-caret-down
+            ul.dropdown-menu.dropdown-tasks
               li
-                a(href="forgot-password.html") Forgot Password Page
+                a(href='#')
+                  div
+                    p
+                      strong Task 1
+                      span.pull-right.text-muted 40% Complete
+                    .progress.progress-striped.active
+                      .progress-bar.progress-bar-success(role='progressbar', aria-valuenow='40', aria-valuemin='0', aria-valuemax='100', style='width: 40%')
+                        span.sr-only 40% Complete (success)
+              li.divider
               li
-                a(href="blank.html") Blank Page
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Menu Levels")
-            a.nav-link.nav-link-collapse.collapsed(data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion")
-              i.fa.fa-fw.fa-sitemap
-              span.nav-link-text Menu Levels
-            ul#collapseMulti.sidenav-second-level.collapse
+                a(href='#')
+                  div
+                    p
+                      strong Task 2
+                      span.pull-right.text-muted 20% Complete
+                    .progress.progress-striped.active
+                      .progress-bar.progress-bar-info(role='progressbar', aria-valuenow='20', aria-valuemin='0', aria-valuemax='100', style='width: 20%')
+                        span.sr-only 20% Complete
+              li.divider
               li
-                a(href="#") Second Level Item
+                a(href='#')
+                  div
+                    p
+                      strong Task 3
+                      span.pull-right.text-muted 60% Complete
+                    .progress.progress-striped.active
+                      .progress-bar.progress-bar-warning(role='progressbar', aria-valuenow='60', aria-valuemin='0', aria-valuemax='100', style='width: 60%')
+                        span.sr-only 60% Complete (warning)
+              li.divider
               li
-                a(href="#") Second Level Item
+                a(href='#')
+                  div
+                    p
+                      strong Task 4
+                      span.pull-right.text-muted 80% Complete
+                    .progress.progress-striped.active
+                      .progress-bar.progress-bar-danger(role='progressbar', aria-valuenow='80', aria-valuemin='0', aria-valuemax='100', style='width: 80%')
+                        span.sr-only 80% Complete (danger)
+              li.divider
               li
-                a(href="#") Second Level Item
+                a.text-center(href='#')
+                  strong See All Tasks
+                  i.fa.fa-angle-right
+            // /.dropdown-tasks
+          // /.dropdown
+          li.dropdown
+            a.dropdown-toggle(data-toggle='dropdown', href='#')
+              i.fa.fa-bell.fa-fw
+              i.fa.fa-caret-down
+            ul.dropdown-menu.dropdown-alerts
               li
-                a.nav-link-collapse.collapsed(data-toggle="collapse" href="#collapseMulti2") Third Level
-                ul#collapseMulti2.sidenav-third-level.collapse
+                a(href='#')
+                  div
+                    i.fa.fa-comment.fa-fw
+                    |  New Comment
+                    span.pull-right.text-muted.small 4 minutes ago
+              li.divider
+              li
+                a(href='#')
+                  div
+                    i.fa.fa-twitter.fa-fw
+                    |  3 New Followers
+                    span.pull-right.text-muted.small 12 minutes ago
+              li.divider
+              li
+                a(href='#')
+                  div
+                    i.fa.fa-envelope.fa-fw
+                    |  Message Sent
+                    span.pull-right.text-muted.small 4 minutes ago
+              li.divider
+              li
+                a(href='#')
+                  div
+                    i.fa.fa-tasks.fa-fw
+                    |  New Task
+                    span.pull-right.text-muted.small 4 minutes ago
+              li.divider
+              li
+                a(href='#')
+                  div
+                    i.fa.fa-upload.fa-fw
+                    |  Server Rebooted
+                    span.pull-right.text-muted.small 4 minutes ago
+              li.divider
+              li
+                a.text-center(href='#')
+                  strong See All Alerts
+                  i.fa.fa-angle-right
+            // /.dropdown-alerts
+          // /.dropdown
+          li.dropdown
+            a.dropdown-toggle(data-toggle='dropdown', href='#')
+              i.fa.fa-user.fa-fw
+              i.fa.fa-caret-down
+            ul.dropdown-menu.dropdown-user
+              li
+                a(href='#')
+                  i.fa.fa-user.fa-fw
+                  |  User Profile
+              li
+                a(href='#')
+                  i.fa.fa-gear.fa-fw
+                  |  Settings
+              li.divider
+              li
+                a(href='login.html')
+                  i.fa.fa-sign-out.fa-fw
+                  |  Logout
+            // /.dropdown-user
+          // /.dropdown
+        // /.navbar-top-links
+        .navbar-default.sidebar(role='navigation')
+          .sidebar-nav.navbar-collapse
+            ul#side-menu.nav
+              li.sidebar-search
+                .input-group.custom-search-form
+                  input.form-control(type='text', placeholder='Search...')
+                  span.input-group-btn
+                    button.btn.btn-default(type='button')
+                      i.fa.fa-search
+                // /input-group
+              li
+                a(href='index.html')
+                  i.fa.fa-dashboard.fa-fw
+                  |  Dashboard
+              li
+                a(href='#')
+                  i.fa.fa-bar-chart-o.fa-fw
+                  |  Charts
+                  span.fa.arrow
+                ul.nav.nav-second-level
                   li
-                    a(href="#") Third Level Item
+                    a(href='flot.html') Flot Charts
                   li
-                    a(href="#") Third Level Item
+                    a(href='morris.html') Morris.js Charts
+                // /.nav-second-level
+              li
+                a(href='tables.html')
+                  i.fa.fa-table.fa-fw
+                  |  Tables
+              li
+                a(href='forms.html')
+                  i.fa.fa-edit.fa-fw
+                  |  Forms
+              li
+                a(href='#')
+                  i.fa.fa-wrench.fa-fw
+                  |  UI Elements
+                  span.fa.arrow
+                ul.nav.nav-second-level
                   li
-                    a(href="#") Third Level Item
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Link")
-            a.nav-link(href="#")
-              i.fa.fa-fw.fa-link
-              span.nav-link-text Link
-        ul.navbar-nav.sidenav-toggler
-          li.nav-item
-            a#sidenavToggler.nav-link.text-center
-              i.fa.fa-fw.fa-angle-left
-        ul.navbar-nav.ml-auto
-          li.nav-item.dropdown
-            a#messagesDropdown.nav-link.dropdown-toggle.mr-lg-2(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-              i.fa.fa-fw.fa-envelope
-              span.d-lg-none
-                | Messages
-                span.badge.badge-pill.badge-primary 12 New
-              span.indicator.text-primary.d-none.d-lg-block
-                i.fa.fa-fw.fa-circle
-            .dropdown-menu(aria-labelledby="messagesDropdown")
-              h6.dropdown-header New Messages:
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                strong David Miller
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small
-                  | Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                strong Jane Smith
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small
-                  | I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                strong John Doe
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small
-                  | I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.
-              .dropdown-divider
-              a.dropdown-item.small(href="#") View all messages
-          li.nav-item.dropdown
-            a#alertsDropdown.nav-link.dropdown-toggle.mr-lg-2(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-              i.fa.fa-fw.fa-bell
-              span.d-lg-none
-                | Alerts
-                span.badge.badge-pill.badge-warning 6 New
-              span.indicator.text-warning.d-none.d-lg-block
-                i.fa.fa-fw.fa-circle
-            .dropdown-menu(aria-labelledby="alertsDropdown")
-              h6.dropdown-header New Alerts:
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                span.text-success
-                  strong
-                    i.fa.fa-long-arrow-up.fa-fw
-                    | Status Update
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small This is an automated server response message. All systems are online.
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                span.text-danger
-                  strong
-                    i.fa.fa-long-arrow-down.fa-fw
-                    | Status Update
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small This is an automated server response message. All systems are online.
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                span.text-success
-                  strong
-                    i.fa.fa-long-arrow-up.fa-fw
-                    | Status Update
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small This is an automated server response message. All systems are online.
-              .dropdown-divider
-              a.dropdown-item.small(href="#") View all alerts
-          li.nav-item
-            form.form-inline.my-2.my-lg-0.mr-lg-2
-              .input-group
-                input.form-control(type="text" placeholder="Search for...")
-                span.input-group-append
-                  button.btn.btn-primary(type="button")
-                    i.fa.fa-search
-          li.nav-item
-            a.nav-link(data-toggle="modal" data-target="#exampleModal")
-              i.fa.fa-fw.fa-sign-out
-              | Logout
-    .content-wrapper
-      .container-fluid
-        // Breadcrumbs
-        ol.breadcrumb
-          li.breadcrumb-item
-            a(href="#") Dashboard
-          li.breadcrumb-item.active My Dashboard
-        // Icon Cards
+                    a(href='panels-wells.html') Panels and Wells
+                  li
+                    a(href='buttons.html') Buttons
+                  li
+                    a(href='notifications.html') Notifications
+                  li
+                    a(href='typography.html') Typography
+                  li
+                    a(href='icons.html')  Icons
+                  li
+                    a(href='grid.html') Grid
+                // /.nav-second-level
+              li
+                a(href='#')
+                  i.fa.fa-sitemap.fa-fw
+                  |  Multi-Level Dropdown
+                  span.fa.arrow
+                ul.nav.nav-second-level
+                  li
+                    a(href='#') Second Level Item
+                  li
+                    a(href='#') Second Level Item
+                  li
+                    a(href='#')
+                      | Third Level 
+                      span.fa.arrow
+                    ul.nav.nav-third-level
+                      li
+                        a(href='#') Third Level Item
+                      li
+                        a(href='#') Third Level Item
+                      li
+                        a(href='#') Third Level Item
+                      li
+                        a(href='#') Third Level Item
+                    // /.nav-third-level
+                // /.nav-second-level
+              li
+                a(href='#')
+                  i.fa.fa-files-o.fa-fw
+                  |  Sample Pages
+                  span.fa.arrow
+                ul.nav.nav-second-level
+                  li
+                    a(href='blank.html') Blank Page
+                  li
+                    a(href='login.html') Login Page
+                // /.nav-second-level
+          // /.sidebar-collapse
+        // /.navbar-static-side
+      #page-wrapper
         .row
-          .col-xl-3.col-sm-6.mb-3
-            .card.text-white.bg-primary.o-hidden.h-100
-              .card-body
-                .card-body-icon
-                  i.fa.fa-fw.fa-comments
-                .mr-5 26 New Messages!
-              a.card-footer.text-white.clearfix.small.z-1(href="#")
-                span.float-left View Details
-                span.float-right
-                  i.fa.fa-angle-right
-          .col-xl-3.col-sm-6.mb-3
-            .card.text-white.bg-warning.o-hidden.h-100
-              .card-body
-                .card-body-icon
-                  i.fa.fa-fw.fa-list
-                .mr-5 11 New Tasks!
-              a.card-footer.text-white.clearfix.small.z-1(href="#")
-                span.float-left View Details
-                span.float-right
-                  i.fa.fa-angle-right
-          .col-xl-3.col-sm-6.mb-3
-            .card.text-white.bg-success.o-hidden.h-100
-              .card-body
-                .card-body-icon
-                  i.fa.fa-fw.fa-shopping-cart
-                .mr-5 123 New Orders!
-              a.card-footer.text-white.clearfix.small.z-1(href="#")
-                span.float-left View Details
-                span.float-right
-                  i.fa.fa-angle-right
-          .col-xl-3.col-sm-6.mb-3
-            .card.text-white.bg-danger.o-hidden.h-100
-              .card-body
-                .card-body-icon
-                  i.fa.fa-fw.fa-support
-                .mr-5 13 New Tickets!
-              a.card-footer.text-white.clearfix.small.z-1(href="#")
-                span.float-left View Details
-                span.float-right
-                  i.fa.fa-angle-right
-        // Area Chart Example
-        .card.mb-3
-          .card-header
-            i.fa.fa-area-chart
-            |  Area Chart Example
-          .card-body
-            canvas#myAreaChart(width="100%" height="30")
-          .card-footer.small.text-muted Updated yesterday at 11:59 PM
+          .col-lg-12
+            h1.page-header Dashboard
+          // /.col-lg-12
+        // /.row
+        .row
+          .col-lg-3.col-md-6
+            .panel.panel-primary
+              .panel-heading
+                .row
+                  .col-xs-3
+                    i.fa.fa-comments.fa-5x
+                  .col-xs-9.text-right
+                    .huge 26
+                    div New Comments!
+              a(href='#')
+                .panel-footer
+                  span.pull-left View Details
+                  span.pull-right
+                    i.fa.fa-arrow-circle-right
+                  .clearfix
+          .col-lg-3.col-md-6
+            .panel.panel-green
+              .panel-heading
+                .row
+                  .col-xs-3
+                    i.fa.fa-tasks.fa-5x
+                  .col-xs-9.text-right
+                    .huge 12
+                    div New Tasks!
+              a(href='#')
+                .panel-footer
+                  span.pull-left View Details
+                  span.pull-right
+                    i.fa.fa-arrow-circle-right
+                  .clearfix
+          .col-lg-3.col-md-6
+            .panel.panel-yellow
+              .panel-heading
+                .row
+                  .col-xs-3
+                    i.fa.fa-shopping-cart.fa-5x
+                  .col-xs-9.text-right
+                    .huge 124
+                    div New Orders!
+              a(href='#')
+                .panel-footer
+                  span.pull-left View Details
+                  span.pull-right
+                    i.fa.fa-arrow-circle-right
+                  .clearfix
+          .col-lg-3.col-md-6
+            .panel.panel-red
+              .panel-heading
+                .row
+                  .col-xs-3
+                    i.fa.fa-support.fa-5x
+                  .col-xs-9.text-right
+                    .huge 13
+                    div Support Tickets!
+              a(href='#')
+                .panel-footer
+                  span.pull-left View Details
+                  span.pull-right
+                    i.fa.fa-arrow-circle-right
+                  .clearfix
+        // /.row
         .row
           .col-lg-8
-            // Example Bar Chart Card
-            .card.mb-3
-              .card-header
-                i.fa.fa-bar-chart
+            .panel.panel-default
+              .panel-heading
+                i.fa.fa-bar-chart-o.fa-fw
+                |  Area Chart Example
+                .pull-right
+                  .btn-group
+                    button.btn.btn-default.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown')
+                      | Actions
+                      span.caret
+                    ul.dropdown-menu.pull-right(role='menu')
+                      li
+                        a(href='#') Action
+                      li
+                        a(href='#') Another action
+                      li
+                        a(href='#') Something else here
+                      li.divider
+                      li
+                        a(href='#') Separated link
+              // /.panel-heading
+              .panel-body
+                #morris-area-chart
+              // /.panel-body
+            // /.panel
+            .panel.panel-default
+              .panel-heading
+                i.fa.fa-bar-chart-o.fa-fw
                 |  Bar Chart Example
-              .card-body
+                .pull-right
+                  .btn-group
+                    button.btn.btn-default.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown')
+                      | Actions
+                      span.caret
+                    ul.dropdown-menu.pull-right(role='menu')
+                      li
+                        a(href='#') Action
+                      li
+                        a(href='#') Another action
+                      li
+                        a(href='#') Something else here
+                      li.divider
+                      li
+                        a(href='#') Separated link
+              // /.panel-heading
+              .panel-body
                 .row
-                  .col-sm-8.my-auto
-                    canvas#myBarChart(width="100" height="50")
-                  .col-sm-4.text-center.my-auto
-                    .h4.mb-0.text-primary $34,693
-                    .small.text-muted YTD Revenue
-                    hr
-                    .h4.mb-0.text-warning $18,474
-                    .small.text-muted YTD Expenses
-                    hr
-                    .h4.mb-0.text-success $16,219
-                    .small.text-muted YTD Margin
-              .card-footer.small.text-muted Updated yesterday at 11:59 PM
-            // Card Columns Example Social Feed
-            .mb-0.mt-4
-              i.fa.fa-newspaper-o
-              |  News Feed
-            hr.mt-2
-            .card-columns
-              // Example Social Card
-              .card.mb-3
-                a(href="#")
-                  img.card-img-top.img-fluid.w-100(src="https://unsplash.it/700/450?image=610" alt="")
-                .card-body
-                  h6.card-title.mb-1
-                    a(href="#") David Miller
-                  p.card-text.small
-                    | These waves are looking pretty good today!
-                    a(href="#") #surfsup
-                hr.my-0
-                .card-body.py-2.small
-                  a.mr-3.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-thumbs-up
-                    | Like
-                  a.mr-3.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-comment
-                    | Comment
-                  a.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-share
-                    | Share
-                hr.my-0
-                .card-body.small.bg-faded
-                  .media
-                    img.d-flex.mr-3(src="http://placehold.it/45x45" alt="")
-                    .media-body
-                      h6.mt-0.mb-1
-                        a(href="#") John Smith
-                      | Very nice! I wish I was there! That looks amazing!
-                      ul.list-inline.mb-0
-                        li.list-inline-item
-                          a(href="#") Like
-                        li.list-inline-item ·
-                        li.list-inline-item
-                          a(href="#") Reply
-                      .media.mt-3
-                        a.d-flex.pr-3(href="#")
-                          img(src="http://placehold.it/45x45" alt="")
-                        .media-body
-                          h6.mt-0.mb-1
-                            a(href="#") David Miller
-                          | Next time for sure!
-                          ul.list-inline.mb-0
-                            li.list-inline-item
-                              a(href="#") Like
-                            li.list-inline-item ·
-                            li.list-inline-item
-                              a(href="#") Reply
-                .card-footer.small.text-muted Posted 32 mins ago
-              // Example Social Card
-              .card.mb-3
-                a(href="#")
-                  img.card-img-top.img-fluid.w-100(src="https://unsplash.it/700/450?image=180" alt="")
-                .card-body
-                  h6.card-title.mb-1
-                    a(href="#") John Smith
-                  p.card-text.small
-                    | Another day at the office...
-                    a(href="#") #workinghardorhardlyworking
-                hr.my-0
-                .card-body.py-2.small
-                  a.mr-3.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-thumbs-up
-                    | Like
-                  a.mr-3.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-comment
-                    | Comment
-                  a.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-share
-                    | Share
-                hr.my-0
-                .card-body.small.bg-faded
-                  .media
-                    img.d-flex.mr-3(src="http://placehold.it/45x45" alt="")
-                    .media-body
-                      h6.mt-0.mb-1
-                        a(href="#") Jessy Lucas
-                      | Where did you get that camera?! I want one!
-                      ul.list-inline.mb-0
-                        li.list-inline-item
-                          a(href="#") Like
-                        li.list-inline-item ·
-                        li.list-inline-item
-                          a(href="#") Reply
-                .card-footer.small.text-muted Posted 46 mins ago
-              // Example Social Card
-              .card.mb-3
-                a(href="#")
-                  img.card-img-top.img-fluid.w-100(src="https://unsplash.it/700/450?image=281" alt="")
-                .card-body
-                  h6.card-title.mb-1
-                    a(href="#") Jeffery Wellings
-                  p.card-text.small
-                    | Nice shot from the skate park!
-                    a(href="#") #kickflip
-                    a(href="#") #holdmybeer
-                    a(href="#") #igotthis
-                hr.my-0
-                .card-body.py-2.small
-                  a.mr-3.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-thumbs-up
-                    | Like
-                  a.mr-3.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-comment
-                    | Comment
-                  a.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-share
-                    | Share
-                .card-footer.small.text-muted Posted 1 hr ago
-              // Example Social Card
-              .card.mb-3
-                a(href="#")
-                  img.card-img-top.img-fluid.w-100(src="https://unsplash.it/700/450?image=185" alt="")
-                .card-body
-                  h6.card-title.mb-1
-                    a(href="#") David Miller
-                  p.card-text.small
-                    | It's hot, and I might be lost...
-                    a(href="#") #desert
-                    a(href="#") #water
-                    a(href="#") #anyonehavesomewater
-                    a(href="#") #noreally
-                    a(href="#") #thirsty
-                    a(href="#") #dehydration
-                hr.my-0
-                .card-body.py-2.small
-                  a.mr-3.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-thumbs-up
-                    | Like
-                  a.mr-3.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-comment
-                    | Comment
-                  a.d-inline-block(href="#")
-                    i.fa.fa-fw.fa-share
-                    | Share
-                hr.my-0
-                .card-body.small.bg-faded
-                  .media
-                    img.d-flex.mr-3(src="http://placehold.it/45x45" alt="")
-                    .media-body
-                      h6.mt-0.mb-1
-                        a(href="#") John Smith
-                      | The oasis is a mile that way, or is that just a mirage?
-                      ul.list-inline.mb-0
-                        li.list-inline-item
-                          a(href="#") Like
-                        li.list-inline-item ·
-                        li.list-inline-item
-                          a(href="#") Reply
-                      .media.mt-3
-                        a.d-flex.pr-3(href="#")
-                          img(src="http://placehold.it/45x45" alt="")
-                        .media-body
-                          h6.mt-0.mb-1
-                            a(href="#") David Miller
-                          img.img-fluid.w-100.mb-1(src="https://unsplash.it/700/450?image=789" alt="")
-                          | I'm saved, I found a cactus. How do I open this thing?
-                          ul.list-inline.mb-0
-                            li.list-inline-item
-                              a(href="#") Like
-                            li.list-inline-item ·
-                            li.list-inline-item
-                              a(href="#") Reply
-                .card-footer.small.text-muted Posted yesterday
-            // /Card Columns
+                  .col-lg-4
+                    .table-responsive
+                      table.table.table-bordered.table-hover.table-striped
+                        thead
+                          tr
+                            th #
+                            th Date
+                            th Time
+                            th Amount
+                        tbody
+                          tr
+                            td 3326
+                            td 10/21/2013
+                            td 3:29 PM
+                            td $321.33
+                          tr
+                            td 3325
+                            td 10/21/2013
+                            td 3:20 PM
+                            td $234.34
+                          tr
+                            td 3324
+                            td 10/21/2013
+                            td 3:03 PM
+                            td $724.17
+                          tr
+                            td 3323
+                            td 10/21/2013
+                            td 3:00 PM
+                            td $23.71
+                          tr
+                            td 3322
+                            td 10/21/2013
+                            td 2:49 PM
+                            td $8345.23
+                          tr
+                            td 3321
+                            td 10/21/2013
+                            td 2:23 PM
+                            td $245.12
+                          tr
+                            td 3320
+                            td 10/21/2013
+                            td 2:15 PM
+                            td $5663.54
+                          tr
+                            td 3319
+                            td 10/21/2013
+                            td 2:13 PM
+                            td $943.45
+                    // /.table-responsive
+                  // /.col-lg-4 (nested)
+                  .col-lg-8
+                    #morris-bar-chart
+                  // /.col-lg-8 (nested)
+                // /.row
+              // /.panel-body
+            // /.panel
+            .panel.panel-default
+              .panel-heading
+                i.fa.fa-clock-o.fa-fw
+                |  Responsive Timeline
+              // /.panel-heading
+              .panel-body
+                ul.timeline
+                  li
+                    .timeline-badge
+                      i.fa.fa-check
+                    .timeline-panel
+                      .timeline-heading
+                        h4.timeline-title Lorem ipsum dolor
+                        p
+                          small.text-muted
+                            i.fa.fa-clock-o
+                            |  11 hours ago via Twitter
+                      .timeline-body
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Libero laboriosam dolor perspiciatis omnis exercitationem. Beatae, officia pariatur? Est cum veniam excepturi. Maiores praesentium, porro voluptas suscipit facere rem dicta, debitis.
+                  li.timeline-inverted
+                    .timeline-badge.warning
+                      i.fa.fa-credit-card
+                    .timeline-panel
+                      .timeline-heading
+                        h4.timeline-title Lorem ipsum dolor
+                      .timeline-body
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Autem dolorem quibusdam, tenetur commodi provident cumque magni voluptatem libero, quis rerum. Fugiat esse debitis optio, tempore. Animi officiis alias, officia repellendus.
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laudantium maiores odit qui est tempora eos, nostrum provident explicabo dignissimos debitis vel! Adipisci eius voluptates, ad aut recusandae minus eaque facere.
+                  li
+                    .timeline-badge.danger
+                      i.fa.fa-bomb
+                    .timeline-panel
+                      .timeline-heading
+                        h4.timeline-title Lorem ipsum dolor
+                      .timeline-body
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Repellendus numquam facilis enim eaque, tenetur nam id qui vel velit similique nihil iure molestias aliquam, voluptatem totam quaerat, magni commodi quisquam.
+                  li.timeline-inverted
+                    .timeline-panel
+                      .timeline-heading
+                        h4.timeline-title Lorem ipsum dolor
+                      .timeline-body
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptates est quaerat asperiores sapiente, eligendi, nihil. Itaque quos, alias sapiente rerum quas odit! Aperiam officiis quidem delectus libero, omnis ut debitis!
+                  li
+                    .timeline-badge.info
+                      i.fa.fa-save
+                    .timeline-panel
+                      .timeline-heading
+                        h4.timeline-title Lorem ipsum dolor
+                      .timeline-body
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nobis minus modi quam ipsum alias at est molestiae excepturi delectus nesciunt, quibusdam debitis amet, beatae consequuntur impedit nulla qui! Laborum, atque.
+                        hr
+                        .btn-group
+                          button.btn.btn-primary.btn-sm.dropdown-toggle(type='button', data-toggle='dropdown')
+                            i.fa.fa-gear
+                            span.caret
+                          ul.dropdown-menu(role='menu')
+                            li
+                              a(href='#') Action
+                            li
+                              a(href='#') Another action
+                            li
+                              a(href='#') Something else here
+                            li.divider
+                            li
+                              a(href='#') Separated link
+                  li
+                    .timeline-panel
+                      .timeline-heading
+                        h4.timeline-title Lorem ipsum dolor
+                      .timeline-body
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sequi fuga odio quibusdam. Iure expedita, incidunt unde quis nam! Quod, quisquam. Officia quam qui adipisci quas consequuntur nostrum sequi. Consequuntur, commodi.
+                  li.timeline-inverted
+                    .timeline-badge.success
+                      i.fa.fa-graduation-cap
+                    .timeline-panel
+                      .timeline-heading
+                        h4.timeline-title Lorem ipsum dolor
+                      .timeline-body
+                        p
+                          | Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt obcaecati, quaerat tempore officia voluptas debitis consectetur culpa amet, accusamus dolorum fugiat, animi dicta aperiam, enim incidunt quisquam maxime neque eaque.
+              // /.panel-body
+            // /.panel
+          // /.col-lg-8
           .col-lg-4
-            // Example Pie Chart Card
-            .card.mb-3
-              .card-header
-                i.fa.fa-pie-chart
-                |  Pie Chart Example
-              .card-body
-                canvas#myPieChart(width="100%" height="100")
-              .card-footer.small.text-muted Updated yesterday at 11:59 PM
-            // Example Notifications Card
-            .card.mb-3
-              .card-header
-                i.fa.fa-bell-o
-                |  Feed Example
-              .list-group.list-group-flush.small
-                a.list-group-item.list-group-item-action(href="#")
-                  .media
-                    img.d-flex.mr-3.rounded-circle(src="http://placehold.it/45x45" alt="")
-                    .media-body
-                      strong David Miller
-                      | posted a new article to
-                      strong David Miller Website
-                      | .
-                      .text-muted.smaller Today at 5:43 PM - 5m ago
-                a.list-group-item.list-group-item-action(href="#")
-                  .media
-                    img.d-flex.mr-3.rounded-circle(src="http://placehold.it/45x45" alt="")
-                    .media-body
-                      strong Samantha King
-                      | sent you a new message!
-                      .text-muted.smaller Today at 4:37 PM - 1hr ago
-                a.list-group-item.list-group-item-action(href="#")
-                  .media
-                    img.d-flex.mr-3.rounded-circle(src="http://placehold.it/45x45" alt="")
-                    .media-body
-                      strong Jeffery Wellings
-                      | added a new photo to the album
-                      strong Beach
-                      | .
-                      .text-muted.smaller Today at 4:31 PM - 1hr ago
-                a.list-group-item.list-group-item-action(href="#")
-                  .media
-                    img.d-flex.mr-3.rounded-circle(src="http://placehold.it/45x45" alt="")
-                    .media-body
-                      i.fa.fa-code-fork
-                      strong Monica Dennis
-                      | forked the
-                      strong startbootstrap-sb-admin
-                      | repository on
-                      strong GitHub
-                      | .
-                      .text-muted.smaller Today at 3:54 PM - 2hrs ago
-                a.list-group-item.list-group-item-action(href="#") View all activity...
-              .card-footer.small.text-muted Updated yesterday at 11:59 PM
-        // Example DataTables Card
-        .card.mb-3
-          .card-header
-            i.fa.fa-table
-            |  Data Table Example
-          .card-body
-            .table-responsive
-              table#dataTable.table.table-bordered(width="100%" cellspacing="0")
-                thead
-                  tr
-                    th Name
-                    th Position
-                    th Office
-                    th Age
-                    th Start date
-                    th Salary
-                tfoot
-                  tr
-                    th Name
-                    th Position
-                    th Office
-                    th Age
-                    th Start date
-                    th Salary
-                tbody
-                  tr
-                    td Tiger Nixon
-                    td System Architect
-                    td Edinburgh
-                    td 61
-                    td 2011/04/25
-                    td $320,800
-                  tr
-                    td Garrett Winters
-                    td Accountant
-                    td Tokyo
-                    td 63
-                    td 2011/07/25
-                    td $170,750
-          .card-footer.small.text-muted Updated yesterday at 11:59 PM
-      // /.container-fluid
-      // /.content-wrapper
-      footer.sticky-footer
-        .container
-          .text-center
-            small Copyright © Your Website 2018
-      // Scroll to Top Button
-      a.scroll-to-top.rounded(href="#page-top")
-        i.fa.fa-angle-up
-      // Logout Modal
-      #exampleModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-        .modal-dialog(role="document")
-          .modal-content
-            .modal-header
-              h5#exampleModalLabel.modal-title Ready to Leave?
-              button.close(type="button" data-dismiss="modal" aria-label="Close")
-                span(aria-hidden="true") ×
-            .modal-body Select "Logout" below if you are ready to end your current session.
-            .modal-footer
-              button.btn.btn-secondary(type="button" data-dismiss="modal") Cancel
-              a.btn.btn-primary(href="login.html") Logout
-      // Bootstrap core JavaScript
-      script(src="vendor/jquery/jquery.min.js")
-      script(src="vendor/bootstrap/js/bootstrap.bundle.min.js")
-      // Core plugin JavaScript
-      script(src="vendor/jquery-easing/jquery.easing.min.js")
-      // Page level plugin JavaScript
-      script(src="vendor/chart.js/Chart.min.js")
-      script(src="vendor/datatables/jquery.dataTables.js")
-      script(src="vendor/datatables/dataTables.bootstrap4.js")
-      // Custom scripts for all pages
-      script(src="js/sb-admin.min.js")
-      // Custom scripts for this page
-      script(src="js/sb-admin-datatables.min.js")
-      script(src="js/sb-admin-charts.min.js")
+            .panel.panel-default
+              .panel-heading
+                i.fa.fa-bell.fa-fw
+                |  Notifications Panel
+              // /.panel-heading
+              .panel-body
+                .list-group
+                  a.list-group-item(href='#')
+                    i.fa.fa-comment.fa-fw
+                    |  New Comment
+                    span.pull-right.text-muted.small
+                      em 4 minutes ago
+                  a.list-group-item(href='#')
+                    i.fa.fa-twitter.fa-fw
+                    |  3 New Followers
+                    span.pull-right.text-muted.small
+                      em 12 minutes ago
+                  a.list-group-item(href='#')
+                    i.fa.fa-envelope.fa-fw
+                    |  Message Sent
+                    span.pull-right.text-muted.small
+                      em 27 minutes ago
+                  a.list-group-item(href='#')
+                    i.fa.fa-tasks.fa-fw
+                    |  New Task
+                    span.pull-right.text-muted.small
+                      em 43 minutes ago
+                  a.list-group-item(href='#')
+                    i.fa.fa-upload.fa-fw
+                    |  Server Rebooted
+                    span.pull-right.text-muted.small
+                      em 11:32 AM
+                  a.list-group-item(href='#')
+                    i.fa.fa-bolt.fa-fw
+                    |  Server Crashed!
+                    span.pull-right.text-muted.small
+                      em 11:13 AM
+                  a.list-group-item(href='#')
+                    i.fa.fa-warning.fa-fw
+                    |  Server Not Responding
+                    span.pull-right.text-muted.small
+                      em 10:57 AM
+                  a.list-group-item(href='#')
+                    i.fa.fa-shopping-cart.fa-fw
+                    |  New Order Placed
+                    span.pull-right.text-muted.small
+                      em 9:49 AM
+                  a.list-group-item(href='#')
+                    i.fa.fa-money.fa-fw
+                    |  Payment Received
+                    span.pull-right.text-muted.small
+                      em Yesterday
+                // /.list-group
+                a.btn.btn-default.btn-block(href='#') View All Alerts
+              // /.panel-body
+            // /.panel
+            .panel.panel-default
+              .panel-heading
+                i.fa.fa-bar-chart-o.fa-fw
+                |  Donut Chart Example
+              .panel-body
+                #morris-donut-chart
+                a.btn.btn-default.btn-block(href='#') View Details
+              // /.panel-body
+            // /.panel
+            .chat-panel.panel.panel-default
+              .panel-heading
+                i.fa.fa-comments.fa-fw
+                |  Chat
+                .btn-group.pull-right
+                  button.btn.btn-default.btn-xs.dropdown-toggle(type='button', data-toggle='dropdown')
+                    i.fa.fa-chevron-down
+                  ul.dropdown-menu.slidedown
+                    li
+                      a(href='#')
+                        i.fa.fa-refresh.fa-fw
+                        |  Refresh
+                    li
+                      a(href='#')
+                        i.fa.fa-check-circle.fa-fw
+                        |  Available
+                    li
+                      a(href='#')
+                        i.fa.fa-times.fa-fw
+                        |  Busy
+                    li
+                      a(href='#')
+                        i.fa.fa-clock-o.fa-fw
+                        |  Away
+                    li.divider
+                    li
+                      a(href='#')
+                        i.fa.fa-sign-out.fa-fw
+                        |  Sign Out
+              // /.panel-heading
+              .panel-body
+                ul.chat
+                  li.left.clearfix
+                    span.chat-img.pull-left
+                      img.img-circle(src='http://placehold.it/50/55C1E7/fff', alt='User Avatar')
+                    .chat-body.clearfix
+                      .header
+                        strong.primary-font Jack Sparrow
+                        small.pull-right.text-muted
+                          i.fa.fa-clock-o.fa-fw
+                          |  12 mins ago
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                  li.right.clearfix
+                    span.chat-img.pull-right
+                      img.img-circle(src='http://placehold.it/50/FA6F57/fff', alt='User Avatar')
+                    .chat-body.clearfix
+                      .header
+                        small.text-muted
+                          i.fa.fa-clock-o.fa-fw
+                          |  13 mins ago
+                        strong.pull-right.primary-font Bhaumik Patel
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                  li.left.clearfix
+                    span.chat-img.pull-left
+                      img.img-circle(src='http://placehold.it/50/55C1E7/fff', alt='User Avatar')
+                    .chat-body.clearfix
+                      .header
+                        strong.primary-font Jack Sparrow
+                        small.pull-right.text-muted
+                          i.fa.fa-clock-o.fa-fw
+                          |  14 mins ago
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+                  li.right.clearfix
+                    span.chat-img.pull-right
+                      img.img-circle(src='http://placehold.it/50/FA6F57/fff', alt='User Avatar')
+                    .chat-body.clearfix
+                      .header
+                        small.text-muted
+                          i.fa.fa-clock-o.fa-fw
+                          |  15 mins ago
+                        strong.pull-right.primary-font Bhaumik Patel
+                      p
+                        | Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur bibendum ornare dolor, quis ullamcorper ligula sodales.
+              // /.panel-body
+              .panel-footer
+                .input-group
+                  input#btn-input.form-control.input-sm(type='text', placeholder='Type your message here...')
+                  span.input-group-btn
+                    button#btn-chat.btn.btn-warning.btn-sm
+                      | Send
+              // /.panel-footer
+            // /.panel .chat-panel
+          // /.col-lg-4
+        // /.row
+      // /#page-wrapper
+    // /#wrapper
+    // jQuery
+    script(src='../vendor/jquery/jquery.min.js')
+    // Bootstrap Core JavaScript
+    script(src='../vendor/bootstrap/js/bootstrap.min.js')
+    // Metis Menu Plugin JavaScript
+    script(src='../vendor/metisMenu/metisMenu.min.js')
+    // Morris Charts JavaScript
+    script(src='../vendor/raphael/raphael.min.js')
+    script(src='../vendor/morrisjs/morris.min.js')
+    script(src='../data/morris-data.js')
+    // Custom Theme JavaScript
+    script(src='../dist/js/sb-admin-2.js')
