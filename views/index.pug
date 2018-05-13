@@ -19,7 +19,7 @@ html(lang="en")
   body#page-top.fixed-nav.sticky-footer.bg-dark
     // Navigation
     nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
-      a.navbar-brand(href="index.html") Start Bootstrap
+      a.navbar-brand(href="index") Start Bootstrap
       button.navbar-toggler.navbar-toggler-right(type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
         span.navbar-toggler-icon
       #navbarResponsive.collapse.navbar-collapse
@@ -154,9 +154,13 @@ html(lang="en")
               .dropdown-divider
               a.dropdown-item.small(href="#") View all alerts
           li.nav-item
-            a.nav-link(data-toggle="modal" data-target="#exampleModal")
+            a.nav-link(href='login')
               i.fa.fa-fw.fa-sign-out
-              | Logout
+              | Sign In
+          li.nav-item
+            a.nav-link(href='register')
+              i.fa.fa-fw.fa-sign-out
+              | Sign Up
     .content-wrapper
       .container-fluid
         // Breadcrumbs

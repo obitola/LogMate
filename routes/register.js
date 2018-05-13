@@ -32,11 +32,12 @@ router.post('/', function(req, res) {
             errors: errors
         });
     } else {
-
-        let info = {email: email, first_name: first_name, last_name: last_name, password: password};
-        let sql = 'INSERT INTO users SET ?';
-        let query = db.query(sql, info, function(err, result) {
+        let info = [email, first_name, last_name, password];
+        let sql = 'INSERT INTO users(email, first_name, last_name, password) VALUES (?, ?, ?, ?)';
+        let query = db.all(sql, info, function(err, result) {
+            console.log(result);
             if (err) {
+                console.log(err);
                 res.render('register', {
                     errors: [{
                         location: 'body',
@@ -50,17 +51,6 @@ router.post('/', function(req, res) {
             }
         });
     }    
-});
-
-router.get('/restarttable', function(req, res) {
-    
-    let sql = 'DROP TABLE users; CREATE TABLE users(user_id int AUTO_INCREMENT, email VARCHAR(255), first_name VARCHAR(255), last_name VARCHAR(255), password VARCHAR(255), PRIMARY KEY user_id, UNIQUE(email));';
-
-    db.query(sql, function(err, result) {
-        if (err) throw err;
-        console.log(result);
-        res.send('Table created...');
-    });
 });
 
 /* GET home page. */

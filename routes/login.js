@@ -13,7 +13,6 @@ const hash = (input) => {
 router.use(expressValidator());
 
 router.post('/', function(req, res) {
-    console.log('worked');
     let email = req.body.email;
     let first_name = req.body.first_name;
     let last_name = req.body.last_name;
@@ -30,32 +29,31 @@ router.post('/', function(req, res) {
             errors: errors
         });
     } else {
-        let sql = 'SELECT 1 FROM users WHERE email = \'' + email + '\' AND password = \'' + password + '\';';
-        console.log(sql);
-        let query = db.query(sql, function(err, result) {
+        let sql = 'SELECT * FROM users WHERE email = \'' + email + '\';';
+        let query = db.all(sql, function(err, result) {
             if (err) {
-                console.log(err);
-                res.render('login', {
-                    errors: [{
-                        location: 'body',
-                        param: 'email',
-                        msg: 'Invalid Email Password Combination!',
-                        value: ''
-                    }]
-                });
+                throw err;
             } else {
-                if (result.length === 0) {
+                if (result.length === 0 ) {
                     res.render('login', {
                         errors: [{
                             location: 'body',
                             param: 'email',
-                            msg: 'Invalid Email Password Combination!',
+                            msg: 'This Email Has Not Been Registered',
                             value: ''
                         }]
                     });
-                } else {
-                    console.log(result);
+                } else if (result[0].password === password) {
                     res.redirect('/');
+                } else {
+                    res.render('login', {
+                        errors: [{
+                            location: 'body',
+                            param: 'email',
+                            msg: 'Incorrect Password',
+                            value: ''
+                        }]
+                    });
                 }
             }
         });
