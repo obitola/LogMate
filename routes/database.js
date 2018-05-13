@@ -10,12 +10,11 @@ var db = new sqlite3.Database('./sql/logmate.db', sqlite3.OPEN_READWRITE | sqlit
 });
 
 db.run('CREATE TABLE IF NOT EXISTS users (' +
-    'user_id INTEGER PRIMARY KEY AUTOINCREMENT,' +
+    'user_id varchar(255) PRIMARY KEY,' +
+    'token varchar(255) NOT NULL,' +
+    'name varchar(255) NOT NULL,' +
     'email varchar(255) NOT NULL,' +
-    'first_name varchar(255) NOT NULL,' +
-    'last_name varchar(255) NOT NULL,' +
-    'password VARCHAR(255),' +
-    'UNIQUE (email));',
+    'UNIQUE (user_id));',
     function(err) {
         if (err)
             throw err;

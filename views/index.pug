@@ -19,8 +19,12 @@ html(lang='en')
     // Navigation
     nav.navbar.navbar-light.bg-light.static-top
       .container
-        .col-sm-10
+        .col-sm-9
           a.navbar-brand(href='#') LogMate
+        .col-sm-1
+          a.btn.btn-danger(href='/auth/google')
+            span.fa.fa-google-plus
+            | Google
         .col-md-1  
           a.btn.btn-primary(href='login') Sign In
         .col-md-1
