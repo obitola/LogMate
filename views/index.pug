@@ -19,16 +19,11 @@ html(lang='en')
     // Navigation
     nav.navbar.navbar-light.bg-light.static-top
       .container
-        .col-sm-9
-          a.navbar-brand(href='#') LogMate
-        .col-sm-1
-          a.btn.btn-danger(href='/auth/google')
-            span.fa.fa-google-plus
-            | Google
-        .col-md-1  
-          a.btn.btn-primary(href='login') Sign In
-        .col-md-1
-          a.btn.btn-primary(href='register') Sign Up
+        a.navbar-brand(href='#') LogMate
+        a.btn.btn-danger(href='/auth/google')
+          span.fa.fa-google-plus 
+          | Sign in with Google
+
     // Masthead
     header.masthead.text-white.text-center
       .overlay
