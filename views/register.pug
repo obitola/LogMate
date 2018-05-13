@@ -44,8 +44,10 @@ html(lang='en')
                 .form-group
                   button.btn.btn-primary.btn-block(type='submit' value='Submit') Register
               .text-center
-                a.d-block.small.mt-3(href='login.html') Login Page
-                a.d-block.small(href='forgot-password.html') Forgot Password?
+                .col-sm-6
+                  a.d-block.small.mt-3(href='login.html') Login Page
+                .col-sm-6
+                  a.d-block.small(href='forgot-password.html') Forgot Password?
             ul.errors.col-md-12
               if errors
                 each error, i in errors
