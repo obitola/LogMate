@@ -47,7 +47,7 @@ router.post('/', function(req, res) {
                     }]
                 });
             } else {
-                res.redirect('/');
+                res.redirect('dashboard');
             }
         });
     }    
