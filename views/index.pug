@@ -1,205 +1,140 @@
 doctype html
-html(lang="en")
+html(lang='en')
   head
     base(href="/../")
-    meta(charset="utf-8")
-    meta(http-equiv="X-UA-Compatible" content="IE=edge")
-    meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
-    meta(name="description" content="")
-    meta(name="author" content="")
-    title SB Admin - Start Bootstrap Template
+    meta(charset='utf-8')
+    meta(name='viewport', content='width=device-width, initial-scale=1, shrink-to-fit=no')
+    meta(name='description', content='')
+    meta(name='author', content='')
+    title Landing Page - Start Bootstrap Theme
     // Bootstrap core CSS
-    link(href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet")
+    link(href='vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
     // Custom fonts for this template
-    link(href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css")
-    // Page level plugin CSS
-    link(href="vendor/datatables/dataTables.bootstrap4.css" rel="stylesheet")
+    link(href='vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    link(href='vendor/simple-line-icons/css/simple-line-icons.css', rel='stylesheet', type='text/css')
+    link(href='https://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic,700italic', rel='stylesheet', type='text/css')
     // Custom styles for this template
-    link(href="css/sb-admin.css" rel="stylesheet")
-  body#page-top.fixed-nav.sticky-footer.bg-dark
+    link(href='css/landing-page.min.css', rel='stylesheet')
+  body
     // Navigation
-    nav#mainNav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top
-      a.navbar-brand(href="index") Start Bootstrap
-      button.navbar-toggler.navbar-toggler-right(type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation")
-        span.navbar-toggler-icon
-      #navbarResponsive.collapse.navbar-collapse
-        ul#exampleAccordion.navbar-nav.navbar-sidenav
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Dashboard")
-            a.nav-link(href="index.html")
-              i.fa.fa-fw.fa-dashboard
-              span.nav-link-text Dashboard
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Charts")
-            a.nav-link(href="charts.html")
-              i.fa.fa-fw.fa-area-chart
-              span.nav-link-text Charts
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Tables")
-            a.nav-link(href="tables.html")
-              i.fa.fa-fw.fa-table
-              span.nav-link-text Tables
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Components")
-            a.nav-link.nav-link-collapse.collapsed(data-toggle="collapse" href="#collapseComponents" data-parent="#exampleAccordion")
-              i.fa.fa-fw.fa-wrench
-              span.nav-link-text Components
-            ul#collapseComponents.sidenav-second-level.collapse
-              li
-                a(href="navbar.html") Navbar
-              li
-                a(href="cards.html") Cards
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Example Pages")
-            a.nav-link.nav-link-collapse.collapsed(data-toggle="collapse" href="#collapseExamplePages" data-parent="#exampleAccordion")
-              i.fa.fa-fw.fa-file
-              span.nav-link-text Example Pages
-            ul#collapseExamplePages.sidenav-second-level.collapse
-              li
-                a(href="login.html") Login Page
-              li
-                a(href="register.html") Registration Page
-              li
-                a(href="forgot-password.html") Forgot Password Page
-              li
-                a(href="blank.html") Blank Page
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Menu Levels")
-            a.nav-link.nav-link-collapse.collapsed(data-toggle="collapse" href="#collapseMulti" data-parent="#exampleAccordion")
-              i.fa.fa-fw.fa-sitemap
-              span.nav-link-text Menu Levels
-            ul#collapseMulti.sidenav-second-level.collapse
-              li
-                a(href="#") Second Level Item
-              li
-                a(href="#") Second Level Item
-              li
-                a(href="#") Second Level Item
-              li
-                a.nav-link-collapse.collapsed(data-toggle="collapse" href="#collapseMulti2") Third Level
-                ul#collapseMulti2.sidenav-third-level.collapse
-                  li
-                    a(href="#") Third Level Item
-                  li
-                    a(href="#") Third Level Item
-                  li
-                    a(href="#") Third Level Item
-          li.nav-item(data-toggle="tooltip" data-placement="right" title="Link")
-            a.nav-link(href="#")
-              i.fa.fa-fw.fa-link
-              span.nav-link-text Link
-        ul.navbar-nav.sidenav-toggler
-          li.nav-item
-            a#sidenavToggler.nav-link.text-center
-              i.fa.fa-fw.fa-angle-left
-        ul.navbar-nav.ml-auto
-          li.nav-item.dropdown
-            a#messagesDropdown.nav-link.dropdown-toggle.mr-lg-2(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-              i.fa.fa-fw.fa-envelope
-              span.d-lg-none
-                | Messages
-                span.badge.badge-pill.badge-primary 12 New
-              span.indicator.text-primary.d-none.d-lg-block
-                i.fa.fa-fw.fa-circle
-            .dropdown-menu(aria-labelledby="messagesDropdown")
-              h6.dropdown-header New Messages:
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                strong David Miller
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small
-                  | Hey there! This new version of SB Admin is pretty awesome! These messages clip off when they reach the end of the box so they don't overflow over to the sides!
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                strong Jane Smith
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small
-                  | I was wondering if you could meet for an appointment at 3:00 instead of 4:00. Thanks!
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                strong John Doe
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small
-                  | I've sent the final files over to you for review. When you're able to sign off of them let me know and we can discuss distribution.
-              .dropdown-divider
-              a.dropdown-item.small(href="#") View all messages
-          li.nav-item.dropdown
-            a#alertsDropdown.nav-link.dropdown-toggle.mr-lg-2(href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false")
-              i.fa.fa-fw.fa-bell
-              span.d-lg-none
-                | Alerts
-                span.badge.badge-pill.badge-warning 6 New
-              span.indicator.text-warning.d-none.d-lg-block
-                i.fa.fa-fw.fa-circle
-            .dropdown-menu(aria-labelledby="alertsDropdown")
-              h6.dropdown-header New Alerts:
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                span.text-success
-                  strong
-                    i.fa.fa-long-arrow-up.fa-fw
-                    | Status Update
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small This is an automated server response message. All systems are online.
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                span.text-danger
-                  strong
-                    i.fa.fa-long-arrow-down.fa-fw
-                    | Status Update
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small This is an automated server response message. All systems are online.
-              .dropdown-divider
-              a.dropdown-item(href="#")
-                span.text-success
-                  strong
-                    i.fa.fa-long-arrow-up.fa-fw
-                    | Status Update
-                span.small.float-right.text-muted 11:21 AM
-                .dropdown-message.small This is an automated server response message. All systems are online.
-              .dropdown-divider
-              a.dropdown-item.small(href="#") View all alerts
-          li.nav-item
-            a.nav-link(href='login')
-              i.fa.fa-fw.fa-sign-out
-              | Sign In
-          li.nav-item
-            a.nav-link(href='register')
-              i.fa.fa-fw.fa-sign-out
-              | Sign Up
-    .content-wrapper
-      .container-fluid
-        // Breadcrumbs
-        ol.breadcrumb
-          li.breadcrumb-item
-            a(href="#") Dashboard
-          li.breadcrumb-item.active My Dashboard
-      // /.container-fluid
-      // /.content-wrapper
-      footer.sticky-footer
-        .container
-          .text-center
-            small Copyright © Your Website 2018
-      // Scroll to Top Button
-      a.scroll-to-top.rounded(href="#page-top")
-        i.fa.fa-angle-up
-      // Logout Modal
-      #exampleModal.modal.fade(tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true")
-        .modal-dialog(role="document")
-          .modal-content
-            .modal-header
-              h5#exampleModalLabel.modal-title Ready to Leave?
-              button.close(type="button" data-dismiss="modal" aria-label="Close")
-                span(aria-hidden="true") ×
-            .modal-body Select "Logout" below if you are ready to end your current session.
-            .modal-footer
-              button.btn.btn-secondary(type="button" data-dismiss="modal") Cancel
-              a.btn.btn-primary(href="login.html") Logout
-      // Bootstrap core JavaScript
-      script(src="vendor/jquery/jquery.min.js")
-      script(src="vendor/bootstrap/js/bootstrap.bundle.min.js")
-      // Core plugin JavaScript
-      script(src="vendor/jquery-easing/jquery.easing.min.js")
-      // Page level plugin JavaScript
-      script(src="vendor/chart.js/Chart.min.js")
-      script(src="vendor/datatables/jquery.dataTables.js")
-      script(src="vendor/datatables/dataTables.bootstrap4.js")
-      // Custom scripts for all pages
-      script(src="js/sb-admin.min.js")
-      // Custom scripts for this page
-      script(src="js/sb-admin-datatables.min.js")
-      script(src="js/sb-admin-charts.min.js")
+    nav.navbar.navbar-light.bg-light.static-top
+      .container
+        .col-sm-10
+          a.navbar-brand(href='#') Start Bootstrap
+        .col-md-1  
+          a.btn.btn-primary(href='login') Sign In
+        .col-md-1
+          a.btn.btn-primary(href='register') Sign Up
+    // Masthead
+    header.masthead.text-white.text-center
+      .overlay
+      .container
+        .row
+          .col-xl-9.mx-auto
+            h1.mb-5 Build a landing page for your business or project and generate more leads!
+    // Icons Grid
+    section.features-icons.bg-light.text-center
+      .container
+        .row
+          .col-lg-4
+            .features-icons-item.mx-auto.mb-5.mb-lg-0.mb-lg-3
+              .features-icons-icon.d-flex
+                i.icon-screen-desktop.m-auto.text-primary
+              h3 Fully Responsive
+              p.lead.mb-0 This theme will look great on any device, no matter the size!
+          .col-lg-4
+            .features-icons-item.mx-auto.mb-5.mb-lg-0.mb-lg-3
+              .features-icons-icon.d-flex
+                i.icon-layers.m-auto.text-primary
+              h3 Bootstrap 4 Ready
+              p.lead.mb-0 Featuring the latest build of the new Bootstrap 4 framework!
+          .col-lg-4
+            .features-icons-item.mx-auto.mb-0.mb-lg-3
+              .features-icons-icon.d-flex
+                i.icon-check.m-auto.text-primary
+              h3 Easy to Use
+              p.lead.mb-0 Ready to use with your own content, or customize the source files!
+    // Image Showcases
+    section.showcase
+      .container-fluid.p-0
+        .row.no-gutters
+          .col-lg-6.order-lg-2.text-white.showcase-img(style="background-image: url('img/bg-showcase-1.jpg');")
+          .col-lg-6.order-lg-1.my-auto.showcase-text
+            h2 Fully Responsive Design
+            p.lead.mb-0
+              | When you use a theme created by Start Bootstrap, you know that the theme will look great on any device, whether it's a phone, tablet, or desktop the page will behave responsively!
+        .row.no-gutters
+          .col-lg-6.text-white.showcase-img(style="background-image: url('img/bg-showcase-2.jpg');")
+          .col-lg-6.my-auto.showcase-text
+            h2 Updated For Bootstrap 4
+            p.lead.mb-0
+              | Newly improved, and full of great utility classes, Bootstrap 4 is leading the way in mobile responsive web development! All of the themes on Start Bootstrap are now using Bootstrap 4!
+        .row.no-gutters
+          .col-lg-6.order-lg-2.text-white.showcase-img(style="background-image: url('img/bg-showcase-3.jpg');")
+          .col-lg-6.order-lg-1.my-auto.showcase-text
+            h2 Easy to Use & Customize
+            p.lead.mb-0
+              | Landing Page is just HTML and CSS with a splash of SCSS for users who demand some deeper customization options. Out of the box, just add your content and images, and your new landing page will be ready to go!
+    // Testimonials
+    section.testimonials.text-center.bg-light
+      .container
+        h2.mb-5 What people are saying...
+        .row
+          .col-lg-4
+            .testimonial-item.mx-auto.mb-5.mb-lg-0
+              img.img-fluid.rounded-circle.mb-3(src='img/testimonials-1.jpg', alt='')
+              h5 Margaret E.
+              p.font-weight-light.mb-0 "This is fantastic! Thanks so much guys!"
+          .col-lg-4
+            .testimonial-item.mx-auto.mb-5.mb-lg-0
+              img.img-fluid.rounded-circle.mb-3(src='img/testimonials-2.jpg', alt='')
+              h5 Fred S.
+              p.font-weight-light.mb-0
+                | "Bootstrap is amazing. I've been using it to create lots of super nice landing pages."
+          .col-lg-4
+            .testimonial-item.mx-auto.mb-5.mb-lg-0
+              img.img-fluid.rounded-circle.mb-3(src='img/testimonials-3.jpg', alt='')
+              h5 Sarah	W.
+              p.font-weight-light.mb-0 "Thanks so much for making these free resources available to us!"
+    // Call to Action
+    section.call-to-action.text-white.text-center
+      .overlay
+      .container
+        .row
+          .col-xl-9.mx-auto
+            h2.mb-4 Ready to get started? Sign up now!
+          .col-md-10.col-lg-8.col-xl-7.mx-auto
+            form
+              .form-row
+    // Footer
+    footer.footer.bg-light
+      .container
+        .row
+          .col-lg-6.h-100.text-center.text-lg-left.my-auto
+            ul.list-inline.mb-2
+              li.list-inline-item
+                a(href='#') About
+              li.list-inline-item ⋅
+              li.list-inline-item
+                a(href='#') Contact
+              li.list-inline-item ⋅
+              li.list-inline-item
+                a(href='#') Terms of Use
+              li.list-inline-item ⋅
+              li.list-inline-item
+                a(href='#') Privacy Policy
+            p.text-muted.small.mb-4.mb-lg-0 © Your Website 2018. All Rights Reserved.
+          .col-lg-6.h-100.text-center.text-lg-right.my-auto
+            ul.list-inline.mb-0
+              li.list-inline-item.mr-3
+                a(href='#')
+                  i.fa.fa-facebook.fa-2x.fa-fw
+              li.list-inline-item.mr-3
+                a(href='#')
+                  i.fa.fa-twitter.fa-2x.fa-fw
+              li.list-inline-item
+                a(href='#')
+                  i.fa.fa-instagram.fa-2x.fa-fw
+    // Bootstrap core JavaScript
+    script(src='vendor/jquery/jquery.min.js')
+    script(src='vendor/bootstrap/js/bootstrap.bundle.min.js')
