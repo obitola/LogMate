@@ -1,5 +1,4 @@
 const sqlite3 = require('sqlite3').verbose();
-const mysql = require('mysql');
 
 //Open a SQLite database file, or create it if it doesn't exist
 var db = new sqlite3.Database('./sql/logmate.db', sqlite3.OPEN_READWRITE | sqlite3.OPEN_CREATE, (err) => {
@@ -28,6 +27,41 @@ db.run('CREATE TABLE IF NOT EXISTS users (' +
         console.log("Created users if it didn't exist already");
     }
 );
+
+db.run('CREATE TABLE IF NOT EXISTS groups (' +
+    'group_id INTEGER PRIMARY KEY AUTOINCREMENT,' +
+    'name varchar(255) NOT NULL,' +
+    'admin varchar(255) NOT NULL,' +
+    'UNIQUE (group_id));',
+    function(err) {
+        if (err)
+            throw err;
+        console.log("Created users if it didn't exist already");
+    }
+);
+
+db.run('CREATE TABLE IF NOT EXISTS user_groups (' +
+    'google_id varchar(255),' +
+    'group_id varchar(255)' +
+    ');',
+    function(err) {
+        if (err)
+            throw err;
+        console.log("Created users if it didn't exist already");
+    }
+);
+
+/* db.run('CREATE TABLE IF NOT EXISTS logs (' +
+    'log_id int PRIMARY KEY AUTOINCREMENT,' +
+    'name varchar(255) NOT NULL,' +
+    'email_verification varchar(255) NOT NULL,' +
+    'UNIQUE (google_id));',
+    function(err) {
+        if (err)
+            throw err;
+        console.log("Created users if it didn't exist already");
+    }
+); */
 
 module.exports = {
     findUserById: function(id, callback) {

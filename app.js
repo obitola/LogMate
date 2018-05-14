@@ -4,11 +4,9 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
-const usersRouter = require('./routes/user');
 const dashboardRouter = require('./routes/dashboard');
 const authRouter = require('./routes/auth');
 const cookieSession = require('cookie-session');
-const mongoose = require('mongoose');
 const keys = require('./routes/keys')
 const passport = require('passport');
 let expressValidator = require('express-validator');
@@ -31,13 +29,6 @@ app.use(cookieSession({
 
 app.use(passport.initialize());
 app.use(passport.session());
-
-mongoose.connect(keys.mongodb.dbURI, () => {
-  console.log('Connected to MongoDB');
-}).catch(function() {
-  console.log('Cannot Connect to MongoDB');
-})
-
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/dashboard', dashboardRouter);

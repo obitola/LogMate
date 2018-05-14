@@ -2,7 +2,6 @@ var express = require('express');
 var router = express.Router();
 var passport = require('passport');
 var db = require('./database');
-var User = require('./user')
 var keys = require('./keys');
 
 router.use(passport.initialize());
@@ -49,7 +48,7 @@ passport.use(new GoogleStrategy({
                         email: profile.emails[0].value
                     }
                     db.addUser(newUser);
-                    console.log('New User Created: ' + newUser);
+                    console.log('New User Created: ' + newUser.name);
                     cb(null, newUser);
                 }
             });
