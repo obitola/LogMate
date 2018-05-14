@@ -1,62 +1,61 @@
 var express = require('express');
 var router = express.Router();
-
 var passport = require('passport');
-
-passport.serializeUser(function(user, done) {
-    done(null, user);
-  });
-  
-  passport.deserializeUser(function(user, done) {
-    done(null, user);
-  });
+var db = require('./database');
+var User = require('./user')
+var keys = require('./keys');
 
 router.use(passport.initialize());
 router.use(passport.session());
+
+/* passport.serializeUser(function(user, done) {
+    done(null, user.google_id);
+});
+  
+passport.deserializeUser(function(id, done) {
+    let user = db.findUserById(id);
+    done(null, user.google_id);
+}); */
+
+passport.serializeUser(function(user, done) {
+    done(null, user);
+});
+  
+passport.deserializeUser(function(user, done) {
+    done(null, user);
+});
 
 var GoogleStrategy = require('passport-google-oauth').OAuth2Strategy;
 
 var db = require('./database');
 
-var auth =  {
-    'clientID': '980332939080-f23k9o4v0uj2stuhcbkeln193lnncvvp.apps.googleusercontent.com',
-    'clientSecret': 'PLPunJxNYOxWD_uJ_CH6CpqD',
-    'callbackURL': 'http://localhost:3000/auth/google/callback'
-
-};
+var auth = keys.google;
 
 passport.use(new GoogleStrategy({
-    clientID: auth.clientID,
-    clientSecret: auth.clientSecret,
-    callbackURL: auth.callbackURL
-  },
-  function(accessToken, refreshToken, profile, cb) {
-    process.nextTick(function() {
-        let sql = 'SELECT * FROM users WHERE user_id = \'' + profile.id + '\';';
-        let user = [profile.id, accessToken, profile.displayName, profile.emails[0].value];
-        let query = db.all(sql, function(err, result) {
-            if (err) {
-                throw err;
-            } else if (result.length === 0) {
-                let user = [profile.id, accessToken, profile.displayName, profile.emails[0].value];
-                let sql = 'INSERT INTO users(user_id, token, name, email) VALUES (?, ?, ?, ?)';
-                let query = db.all(sql, user, function(err, result) {
-                    console.log(result);
-                    if (err) {
-                        console.log(err);
-                        return cb(err);
-                        //res.redirect('login');
-                    } else {
-                        return cb(null, user);
-                        //res.redirect('login');
+        clientID: auth.clientID,
+        clientSecret: auth.clientSecret,
+        callbackURL: auth.callbackURL
+    },
+    function(accessToken, refreshToken, profile, cb) {
+        process.nextTick(function() {
+            db.findUserById(profile.id, function(user) {
+                if (user) {
+                    console.log('Returning User: ' + user.name);
+                    cb(null, user);
+                } else {
+                    newUser = {
+                        google_id: profile.id,
+                        name: profile.displayName,
+                        email: profile.emails[0].value
                     }
-                });
-            } else {
-                return cb(null, user);
-            }
+                    db.addUser(newUser);
+                    console.log('New User Created: ' + newUser);
+                    cb(null, newUser);
+                }
+            });
+            
         });
-    });
-  }
+    }
 ));
 
 /* GET home page. */
@@ -64,14 +63,12 @@ router.get('/auth/google', passport.authenticate('google', {
     scope: ['profile', 'email']
 }));
 
-router.get('/auth/google/callback',
+router.get('/auth/google/callback', 
     passport.authenticate('google', { 
         successRedirect: '/dashboard',
         failureRedirect: '/'
     }));
 
-
-
-    module.exports = router;
+module.exports = router;
 
 
