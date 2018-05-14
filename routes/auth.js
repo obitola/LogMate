@@ -7,15 +7,6 @@ var keys = require('./keys');
 router.use(passport.initialize());
 router.use(passport.session());
 
-/* passport.serializeUser(function(user, done) {
-    done(null, user.google_id);
-});
-  
-passport.deserializeUser(function(id, done) {
-    let user = db.findUserById(id);
-    done(null, user.google_id);
-}); */
-
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
@@ -57,12 +48,17 @@ passport.use(new GoogleStrategy({
     }
 ));
 
+router.get('/logout', function(req, res, next) {
+    req.logout();
+    res.redirect('./../');
+})
+
 /* GET home page. */
-router.get('/auth/google', passport.authenticate('google', {
+router.get('/google', passport.authenticate('google', {
     scope: ['profile', 'email']
 }));
 
-router.get('/auth/google/callback', 
+router.get('/google/callback', 
     passport.authenticate('google', { 
         successRedirect: '/dashboard',
         failureRedirect: '/'
