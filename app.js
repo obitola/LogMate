@@ -5,11 +5,12 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const dashboardRouter = require('./routes/dashboard');
+const groupsRouter = require('./routes/groups');
 const authRouter = require('./routes/auth');
 const cookieSession = require('cookie-session');
 const keys = require('./routes/keys')
 const passport = require('passport');
-let expressValidator = require('express-validator');
+const expressValidator = require('express-validator');
 
 const app = express();
 
@@ -32,6 +33,7 @@ app.use(passport.session());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/dashboard', dashboardRouter);
+app.use('/groups', groupsRouter);
 app.use('/auth', authRouter);
 
 // catch 404 and forward to error handler
