@@ -8,10 +8,10 @@ var db = new sqlite3.Database('./sql/logmate.db', sqlite3.OPEN_READWRITE | sqlit
     console.log('Connected to the in-memory SQlite database.');
 });
 
-db.run('DROP TABLE groups', function(err) {
-  if (err) throw err;
-
-});
+//db.run('DROP TABLE groups', function(err) {
+//  if (err) throw err;
+//
+//});
 
 db.run('CREATE TABLE IF NOT EXISTS users (' +
     'google_id varchar(255) PRIMARY KEY,' +
@@ -42,6 +42,7 @@ db.run('CREATE TABLE IF NOT EXISTS user_groups (' +
     ');',
     function(err) {
         if (err) throw err;
+        console.log('Created table user_groups');
     }
 );
 
@@ -58,7 +59,7 @@ db.run('CREATE TABLE IF NOT EXISTS user_groups (' +
 ); */
 
 module.exports = {
-    findUserById: function(id, callback) {
+    findUserByID: function(id, callback) {
         let sql = 'SELECT * FROM users WHERE google_id = \'' + id + '\';';
         db.all(sql, function(err, results) {
             if (err) throw err;
@@ -66,8 +67,24 @@ module.exports = {
         })
     },
 
+    findGroupByID: function(id, callback) {
+      let sql = 'SELECT * FROM groups WHERE group_id = \'' + id + '\';';
+      db.all(sql, function(err, results) {
+        if (err) throw err;
+        callback(results[i]);
+      });
+    },
+
     getAdminGroups: function(user, callback) {
       let sql = 'SELECT * FROM groups WHERE google_id = \'' + user.google_id + '\';';
+      db.all(sql, function(err, results) {
+        if (err) throw err;
+        callback(results);
+      })
+    },
+
+    getGroupMembersIDs: function(group, callback) {
+      let sql = 'SELECT * FROM user_groups WHERE group_id = \'' + group.group_id + '\';';
       db.all(sql, function(err, results) {
         if (err) throw err;
         callback(results);

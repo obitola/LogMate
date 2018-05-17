@@ -10,7 +10,7 @@ router.use(passport.session());
 passport.serializeUser(function(user, done) {
     done(null, user);
 });
-  
+
 passport.deserializeUser(function(user, done) {
     done(null, user);
 });
@@ -28,7 +28,7 @@ passport.use(new GoogleStrategy({
     },
     function(accessToken, refreshToken, profile, cb) {
         process.nextTick(function() {
-            db.findUserById(profile.id, function(user) {
+            db.findUserByID(profile.id, function(user) {
                 if (user) {
                     console.log('Returning User: ' + user.name);
                     cb(null, user);
@@ -43,7 +43,7 @@ passport.use(new GoogleStrategy({
                     cb(null, newUser);
                 }
             });
-            
+
         });
     }
 ));
@@ -58,12 +58,10 @@ router.get('/google', passport.authenticate('google', {
     scope: ['profile', 'email']
 }));
 
-router.get('/google/callback', 
-    passport.authenticate('google', { 
+router.get('/google/callback',
+    passport.authenticate('google', {
         successRedirect: '/dashboard',
         failureRedirect: '/'
     }));
 
 module.exports = router;
-
-
