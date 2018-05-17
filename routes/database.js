@@ -8,13 +8,10 @@ var db = new sqlite3.Database('./sql/logmate.db', sqlite3.OPEN_READWRITE | sqlit
     console.log('Connected to the in-memory SQlite database.');
 });
 
-/* db.run('DROP TABLE users',
-    function(err) {
-        if (err)
-            throw err;
-        console.log("Created users if it didn't exist already");
-    }
-); */
+db.run('DROP TABLE groups', function(err) {
+  if (err) throw err;
+
+});
 
 db.run('CREATE TABLE IF NOT EXISTS users (' +
     'google_id varchar(255) PRIMARY KEY,' +
@@ -22,21 +19,20 @@ db.run('CREATE TABLE IF NOT EXISTS users (' +
     'email varchar(255) NOT NULL,' +
     'UNIQUE (google_id));',
     function(err) {
-        if (err)
-            throw err;
-        console.log("Created users if it didn't exist already");
+        if (err) throw err;
+        console.log('Created table users');
     }
 );
 
 db.run('CREATE TABLE IF NOT EXISTS groups (' +
     'group_id INTEGER PRIMARY KEY AUTOINCREMENT,' +
     'name varchar(255) NOT NULL,' +
-    'admin varchar(255) NOT NULL,' +
+    'description varchar(255) NOT NULL,' +
+    'google_id varchar(255) NOT NULL,' +
     'UNIQUE (group_id));',
     function(err) {
-        if (err)
-            throw err;
-        console.log("Created users if it didn't exist already");
+      if (err) throw err;
+      console.log('Created table groups');
     }
 );
 
@@ -45,9 +41,7 @@ db.run('CREATE TABLE IF NOT EXISTS user_groups (' +
     'group_id varchar(255)' +
     ');',
     function(err) {
-        if (err)
-            throw err;
-        console.log("Created users if it didn't exist already");
+        if (err) throw err;
     }
 );
 
@@ -71,26 +65,29 @@ module.exports = {
             callback(results[0]);
         })
     },
-    
+
+    getAdminGroups: function(user, callback) {
+      let sql = 'SELECT * FROM groups WHERE google_id = \'' + user.google_id + '\';';
+      db.all(sql, function(err, results) {
+        if (err) throw err;
+        callback(results);
+      })
+    },
+
     addUser: function(user) {
         let sql = 'INSERT INTO users(google_id, name, email) VALUES (?, ?, ?)';
-        function query(sql, data, callback) {
-            db.all(sql, data, function(err, results) {
-                if (err) throw err;
-                callback(results);
-            })
-        }
-    
-        data = [user.google_id, user.name, user.email];
-    
-        let results = [];
-        query(sql, data, function(res) {
-            results = res;
-        })
-        if (results.length === 0) {
-            return undefined;
-        } else {
-            return results[0];
-        }
+        let data = [user.google_id, user.name, user.email];
+
+        db.run(sql, data, function(err, results) {
+            if (err) throw err;
+        });
+    },
+
+    createGroup: function(group) {
+      let sql = 'INSERT INTO groups (name, description, google_id) VALUES (?, ?, ?)';
+      let data = [group.name, group.description, group.google_id]
+      db.run(sql, data, function(err, results) {
+        if (err) throw err;
+      })
     }
 }
